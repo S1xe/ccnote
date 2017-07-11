@@ -250,4 +250,79 @@ P820
 
 个人性格对于造就出程序员高手更具有决定性意义
 
+P822
+
+求知欲
+
+- 在开发过程中建立自我意识
+- 试验
+- 阅读解决问题的相关方法
+- 在行动之前做分析和计划
+- 学习成功项目的开发禁言
+- 阅读文档
+- 阅读其他书本期刊
+- 同专业人士交往
+- 向专业开发看齐
+
+P826
+
+编程生涯成熟的部分标志就是发展出一种不屈不挠的诚实感,表现在以下几个方面
+
+- 不是高手时不假装是高手
+- 乐于承认错误
+- 力图理解编译器的警告,而非弃之不理
+- 透彻理解自己的程序,而不要只是编译看看能否运行
+- 提供实际的状况报告
+- 提供现实的进度方案,在上司面前坚持自己的意见
+
+P827
+
+需要学习如何坚守其立场
+
+P828
+
+编程首先是与人交流,其次才是与计算机交流
+
+P831
+
+知道何时放弃很难,但这是必须面对的问题
+
+P832
+
+可以热爱编程,但热情不能代替熟练的能力,请想明白什么更重要
+
+---
+
+#### chapter33
+
+P839
+
+采用编码规范主要也是为了降低复杂度
+
+P840
+
+测试仅仅说明软件所用的特定方法有缺陷,并不能让软件更有用、更快、更可读或更有扩展性
+
+P853
+
+编程应基于问题域而非解决方案，这样便于复杂性管理
+
+---
+
+#### chapter35
+
+资源推荐
+
+- ACM Computer Reviews(www.acm.org)
+- Construx(www.construx.com/ladder/)
+- Software Development(wwww.sdmagazine.com)
+- Dr.Dobb's Journal(www.ddj.com ==> http://www.drdobbs.com)
+- IEEE Software(www.computer.org/software)
+- IEEE Computer(www.computer.org/computer)
+- Communications of the ACM
+- The C/C++ Users Journal (www.cuj.com)
+- Java Developer;s Journal (www.sys-com.com/java)
+- Linux Journal(www.linuxjournal.com)
+- Windows Developer's Network(www.wd-mag.com)
+
 ---

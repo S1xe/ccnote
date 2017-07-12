@@ -6,6 +6,16 @@
 
 `备注:已于2017/07/11第一遍通读完《CodeComplete》`
 
+---
+
+`Translate` 用于记录自己的一些对外文资料的翻译
+
+`Clang-Format-Option.md` 是翻译[http://clang.llvm.org/docs/ClangFormatStyleOptions.html](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)上的配置说明
+
+争取在2017/07/12-2017/07/15内完成
+
+---
+
 #### Other
 
 `schedule.md` 则会记录每天的学习进度

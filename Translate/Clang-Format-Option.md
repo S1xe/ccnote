@@ -12,7 +12,7 @@ Clang-Format Style Options
 
 **clang-format**支持两种自定义样式选项:通过`-style=`命令行直接指定样式配置,或者使用`-style=file`并将样式配置放在项目目录下的`.clang-format`或`_clang-format`文件中.
 
-当使用`-style=file`时,clang-format会为每个输入文件尝试在输入文件最近的上级目录查找`.clang-format`文件.当使用标准输入时,查找从当前目录开始.
+当使用`-style=file`时,clang-format会为每个输入文件尝试在就近的上级目录查找`.clang-format`文件.当使用标准输入时,查找从当前目录开始.
 
 `.clang-format`使用YAML样式:
 ```

@@ -88,7 +88,7 @@ void formatted_code_again;
 ---
 
 
-**BasedOnStyle**(string)
+**BasedOnStyle**(`string`)
 
 该样式用于除被专门设定的之外的选项样式.
 
@@ -104,13 +104,13 @@ void formatted_code_again;
 
 ---
 
-**AccessModifierOffset**(int)
+**AccessModifierOffset**(`int`)
 
 访问修饰符的缩进或凸出,如`public`
 
 ---
 
-**AlignAfterOpenBracket** (BracketAlignmentStyle)
+**AlignAfterOpenBracket** (`BracketAlignmentStyle`)
 
 若真,在开括号后保持水平对齐.
 
@@ -118,21 +118,21 @@ void formatted_code_again;
 
 可取的值:
 
-- BAS_Align (在配置中为Align)参数根据开括号对齐,如下
+- `BAS_Align` (在配置中为`Align`)参数根据开括号对齐,如下
 
 ```c++
 someLongFunction(argument1,
                  argument2);
 ``` 
 
-- BAS_DontAlign (在配置中为DontAlign)不对齐,使用`ContinuationIndentWidth`,如下
+- `BAS_DontAlign` (在配置中为`DontAlign`)不对齐,使用`ContinuationIndentWidth`,如下
 
 ```c++
 someLongFunction(argument1,
     argument2);
 ```
 
-- BAS_AlwaysBreak (在配置中为AlwaysBreak) 若参数不适合一行,将在开括号换行,如下
+- `BAS_AlwaysBreak` (在配置中为`AlwaysBreak`) 若参数不适合一行,将在开括号换行,如下
 
 ```c++
 someLongFunction(
@@ -141,9 +141,9 @@ someLongFunction(
 
 ---
 
-**AlignConsecutiveAssignments** (bool)
+**AlignConsecutiveAssignments** (`bool`)
 
-若真,则对齐连续赋值运算符.
+若`true`,则对齐连续赋值运算符.
 
 这将对齐连续多行的赋值运算符.效果如下:
 
@@ -155,9 +155,9 @@ int ccc  = 23;
 
 ---
 
-**AlignConsecutiveDeclarations** (bool)
+**AlignConsecutiveDeclarations** (`bool`)
 
-若真，则对齐连续声明.
+若`true`，则对齐连续声明.
 
 这将对齐连续多行的声明变量名.效果如下:
 
@@ -168,3 +168,328 @@ std::string ccc = 23;
 ```
 
 ---
+
+**AlignEscapedNewlines** (`EscapedNewlineAlignmentStyle`)
+
+换行符(\)的选项
+
+可取的值:
+
+- `ENAS_DontAlign` (在配置中为`DontAlign`) 换行符(\)不对齐
+
+```c++
+#define A \
+  int aaaa; \
+  int b; \
+  int dddddddddd;
+```
+
+- `ENAS_Left` (在配置中为`Left`) 换行符(\)尽量左对齐
+
+```c++
+true:
+#define A   \
+  int aaaa; \
+  int b;    \
+  int dddddddddd;
+
+false:
+```
+
+- `ENAS_Right` (在配置中为`Right`) 换行符(\)尽量右对齐
+
+```c++
+#define A                                                                      \
+  int aaaa;                                                                    \
+  int b;                                                                       \
+  int dddddddddd;
+```
+
+---
+
+**AlignOperands** (`bool`)
+
+若`true`,则水平对齐二目运算符和三目运算符的操作数
+
+具体地说,这将单行表达式拆分成多行对齐,如下:
+
+```c++
+int aaa = bbbbbbbbbbbbbbb +
+          ccccccccccccccc;
+```
+
+---
+
+**AlignTrailingComments** (`bool`)
+
+若`true`,则对齐注释
+
+```c++
+true:                                   false:
+int a;     // My comment a      vs.     int a; // My comment a
+int b = 2; // comment  b                int b = 2; // comment about b
+```
+
+---
+
+**AllowAllParametersOfDeclarationOnNextLine** (bool)
+
+在函数声明中允许将所有参数放下一行,除非为`false`.
+
+```c++
+true:                                   false:
+myFunction(foo,                 vs.     myFunction(foo, bar, plop);
+           bar,
+           plop);
+```
+
+---
+
+**AllowShortBlocksOnASingleLine** (`bool`)
+
+允许将简单语句放置在一行中
+
+样例:  `if (a) { return; }`将在一行
+
+---
+
+**AllowShortCaseLabelsOnASingleLine** (`bool`)
+
+若`true`,则会将简单的case代码压缩在一行
+
+```c++
+true:                                   false:
+switch (a) {                    vs.     switch (a) {
+case 1: x = 1; break;                   case 1:
+case 2: return;                           x = 1;
+}                                         break;
+                                        case 2:
+                                          return;
+                                        }
+```
+
+---
+
+**AllowShortFunctionsOnASingleLine** (`ShortFunctionStyle`)
+
+根据取值, `int f() { return 0; }` 可能在单独一行.
+
+可取的值:
+
+- `SFS_None` (在配置中为 `None`) 不将函数合并在一行
+
+- `SFS_InlineOnly` (在配置中为 `InlineOnly`) 只合并在类内定义的函数和`inline`函数,不合并空函数: 举例,顶级空函数也不会被合并
+
+```c++
+class Foo {
+  void f() { foo(); }
+};
+void f() {
+  foo();
+}
+void f() {
+}
+```
+
+- `SFS_Empty` (在配置中为 `Empty`) 只合并空函数
+
+```c++
+void f() {}
+void f2() {
+  bar2();
+}
+```
+
+- `SFS_Inline` (在配置中为 `Inline`) 只合并类内函数及空函数
+
+```c++
+class Foo {
+  void f() { foo(); }
+};
+void f() {
+  foo();
+}
+void f() {}
+```
+
+- `SFS_All` (在配置中为 `All`) 将所有函数都合并在一行
+
+```c++
+class Foo {
+  void f() { foo(); }
+};
+void f() { bar(); }
+```
+
+---
+
+**AllowShortIfStatementsOnASingleLine** (`bool`)
+
+若`true`, `if (a) return;`将在一行
+
+---
+
+**AllowShortLoopsOnASingleLine** (`bool`)
+
+若`true`, `while (true) continue;`将在一行
+
+---
+
+**AlwaysBreakAfterDefinitionReturnType** (`DefinitionReturnTypeBreakingStyle`)
+
+函数声明中返回类型单独一行.该选项是**弃用**的,并保留作为向后兼容.
+
+可取的值:
+
+- `DRTBS_None` (在配置中为 `None`) 返回类型后自动换行,但会受`PenaltyReturnTypeOnItsOwnLine`选项的影响.
+
+- `DRTBS_All` (在配置中为 `All`) 返回类型后总是换行
+
+- `DRTBS_TopLevel` (在配置中为 `TopLevel`)顶层函数的返回类型后总是换行
+
+---
+
+**AlwaysBreakAfterReturnType** (`ReturnTypeBreakingStyle`)
+
+函数定义中返回类型的样式风格
+
+可取的值:
+
+- `RTBS_None` (在配置中为 `None`) 返回类型后自动换行,但会受`PenaltyReturnTypeOnItsOwnLine`选项的影响
+
+```c++
+class A {
+  int f() { return 0; };
+};
+int f();
+int f() { return 1; }
+```
+
+- `RTBS_All` (在配置中为 `All`) 返回类型后总是换行
+
+```c++
+class A {
+  int
+  f() {
+    return 0;
+  };
+};
+int
+f();
+int
+f() {
+  return 1;
+}
+```
+
+- `RTBS_TopLevel` (在配置中为 `TopLevel`) 顶层函数的返回类型后总是换行
+
+```c++
+class A {
+  int f() { return 0; };
+};
+int
+f();
+int
+f() {
+  return 1;
+}
+```
+
+- `RTBS_AllDefinitions` (在配置中为 `AllDefinitions`) 函数定义中的返回类型后总是换行
+
+```c++
+class A {
+  int
+  f() {
+    return 0;
+  };
+};
+int f();
+int
+f() {
+  return 1;
+}
+```
+
+- `RTBS_TopLevelDefinitions` (在配置中为 `TopLevelDefinitions`) 顶层函数定义中的返回类型后总是换行
+
+```c++
+class A {
+  int f() { return 0; };
+};
+int f();
+int
+f() {
+  return 1;
+}
+```
+
+---
+
+**AlwaysBreakBeforeMultilineStrings** (`bool`)
+
+若`true`,在多行字符串前总是换行
+
+这个选项意味着在代码中有多个多行字符串的情况下视觉更一致.因此,它只在包装字符串时生效,并使其从行首缩进`ContinuationIndentWidth`个空格.
+
+```c++
+true:                                  false:
+aaaa =                         vs.     aaaa = "bbbb"
+    "bbbb"                                    "cccc";
+    "cccc";
+```
+
+---
+
+**AlwaysBreakTemplateDeclarations** (`bool`)
+
+若`true`,总会在定义模板中的`template<...>`后换行
+
+```c++
+true:                                  false:
+template <typename T>          vs.     template <typename T> class C {};
+class C {};
+```
+
+---
+
+**BinPackArguments** (`bool`)
+
+若`false`,调用函数的实参不会在同一行或各自一行.
+
+```c++
+true:
+void f() {
+  f(aaaaaaaaaaaaaaaaaaaa, aaaaaaaaaaaaaaaaaaaa,
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+}
+
+false:
+void f() {
+  f(aaaaaaaaaaaaaaaaaaaa,
+    aaaaaaaaaaaaaaaaaaaa,
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa);
+}
+```
+
+---
+
+**BinPackParameters** (`bool`)
+
+若`false`,函数定义的形参将不会同一行或各自一行
+
+```c++
+true:
+void f(int aaaaaaaaaaaaaaaaaaaa, int aaaaaaaaaaaaaaaaaaaa,
+       int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) {}
+
+false:
+void f(int aaaaaaaaaaaaaaaaaaaa,
+       int aaaaaaaaaaaaaaaaaaaa,
+       int aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa) {}
+```
+
+---
+
+
